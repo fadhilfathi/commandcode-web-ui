@@ -1,0 +1,27 @@
+{
+  "name": "commandcode-web-ui",
+  "version": "0.1.0",
+  "private": true,
+  "description": "Team orchestration dashboard for Command Code agents",
+  "workspaces": [
+    "packages/*"
+  ],
+  "scripts": {
+    "dev": "concurrently \"npm run dev:server\" \"npm run dev:client\"",
+    "dev:client": "npm run dev --workspace=packages/client",
+    "dev:server": "npm run dev --workspace=packages/server",
+    "build": "turbo run build",
+    "build:shared": "npm run build --workspace=packages/shared",
+    "build:server": "npm run build --workspace=packages/server",
+    "build:client": "npm run build --workspace=packages/client",
+    "clean": "turbo run clean"
+  },
+  "devDependencies": {
+    "concurrently": "^9.1.2",
+    "turbo": "^2.4.4",
+    "typescript": "~5.7.3"
+  },
+  "engines": {
+    "node": ">=20.0.0"
+  }
+}
